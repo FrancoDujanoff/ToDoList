@@ -49,22 +49,22 @@ export const AgregarItem = ({ tareas, onAddTarea }) => {
           ></input>
         </div>
         <div className="col-md-8 col-lg-4">
-          <button class="button" onClick={onSubmit}>
+          <button className="button" onClick={onSubmit}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
-              stroke-width="1.5"
+              strokeWidth="1.5"
               stroke="currentColor"
-              class="w-6 h-6"
+              className="w-6 h-6"
             >
               <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75"
               ></path>
             </svg>
-            <div class="text">Agregar</div>
+            <div className="text">Agregar</div>
           </button>
         </div>
       </form>

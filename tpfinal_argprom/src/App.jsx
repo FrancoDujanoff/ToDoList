@@ -1,15 +1,41 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Lista } from "./components/lista/Lista";
 import { AgregarItem } from "./components/agregaritem/AgregarItem";
 import { Header } from "./components/header/Header";
 import { Footer } from "./components/footer/Footer";
 
 export const App = () => {
-  const [tareas, setTareas] = useState([]);
 
+  const [tareas, setTareas] = useState([]);
+  const [tareasPersistidas, setTareasPersistidas] = useState([]);
+  
+  useEffect(() => {
+    const tareasGuardadas = localStorage.getItem("tareas");
+    if (tareasGuardadas) {
+      try {
+        setTareas(JSON.parse(tareasGuardadas));
+        setTareasPersistidas(JSON.parse(tareasGuardadas));
+      } catch (error) {
+        console.log(error);
+        localStorage.removeItem("tareas");
+        setTareas([]);
+        setTareasPersistidas([]);
+      }
+    }
+  }, []);
+  
+  useEffect(() => {
+    if (JSON.stringify(tareas) !== JSON.stringify(tareasPersistidas)) {
+      localStorage.setItem("tareas", JSON.stringify(tareas));
+      setTareasPersistidas(tareas);
+    }
+  }, [tareas, tareasPersistidas]);
+  
   const addTarea = (newTarea) => {
-    setTareas([...tareas, newTarea]);
+    const nuevasTareas = [...tareas, newTarea];
+    setTareas(nuevasTareas);
   };
+  
 
   const updateTarea = (id, accion) => {
     if (accion == "realizado") {

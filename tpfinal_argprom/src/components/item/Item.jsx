@@ -32,8 +32,8 @@ export const Item = ({
 
   return (
     <>
-      <div className="col-md-6 col-lg-3 m-2">
-        <div class="card">
+      <div className="col-sm-4 col-md-4 col-lg-3 m-2">
+        <div className="card">
           <div className="bg text-center">
             <div className="row">
               <p>{nombre}</p>

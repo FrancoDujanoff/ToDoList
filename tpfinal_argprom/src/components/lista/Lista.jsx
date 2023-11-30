@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Item } from "../item/Item";
 
 export const Lista = ({ tareas, onUpdateTarea }) => {
+
   return (
     <>
       <div className="container-fluid">
